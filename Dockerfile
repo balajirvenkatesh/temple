@@ -1,16 +1,22 @@
-# Step 1: Use an official JDK runtime as a parent image
-#FROM eclipse-temurin:17-jdk-alpine
-FROM eclipse-temurin:21-jre
-
-# Step 2: Set the working directory inside the container
+# Stage 1: Build the application
+FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 
-# Step 3: Copy the executable JAR from your target folder to the container
-# Replace 'your-app-name.jar' with the actual name found in your /target or /build/libs folder
-COPY target/Temple-0.0.1-SNAPSHOT.jar app.jar
+# Copy the maven wrapper and pom file first (optimizes caching)
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:go-offline
 
-# Step 4: Expose the port your Spring Boot app runs on (usually 8080)
+# Copy the source code and build the application
+COPY src ./src
+RUN ./mvnw clean package -DskipTests
+
+# Stage 2: Run the application
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+
+# Copy only the built JAR from the 'build' stage
+COPY --from=build /app/target/Temple-0.0.1-SNAPSHOT.jar app.jar
+
 EXPOSE 8080
-
-# Step 5: Run the JAR file
 ENTRYPOINT ["java", "-jar", "app.jar"]
