@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/donation")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class DonationController {
     @Autowired
     private DonationService donationService;
