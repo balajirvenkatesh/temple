@@ -25,7 +25,7 @@ public class DonationController {
     @GetMapping
     public ResponseEntity<?> getAllDonation(){
         List<Donation> donationList = donationService.getAllDonation();
-        return new ResponseEntity<>(donationList, HttpStatus.FOUND);
+        return new ResponseEntity<>(donationList, HttpStatus.OK);
     }
 
     @GetMapping("/id")
