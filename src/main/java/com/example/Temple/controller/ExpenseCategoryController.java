@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("expense_category")
+@RequestMapping("/expense_category")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ExpenseCategoryController {
 
