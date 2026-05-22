@@ -46,6 +46,10 @@ public class Donation {
 
     private LocalDateTime donatedAt;
 
+    private LocalDateTime deletedAt;
+
+    private LocalDateTime updatedAt;
+
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "json")
     private Map<String, Object> metadata;
