@@ -13,8 +13,8 @@ import org.springframework.web.servlet.view.RedirectView;
 @RestController
 public class PaymentController {
 
-    private static final String KEY_ID = "rzp_test_thbnstH0Bq80hy"; // Replace with your Key ID
-    private static final String KEY_SECRET = "oc86adrgm685ECs3Wzdk0nOb"; // Replace with your Key Secret
+    private static final String KEY_ID = "rzp_test_SsgyDu8zw62jBx"; // Replace with your Key ID
+    private static final String KEY_SECRET = "tZzHdDqbT7g2OOv2O8bawexI"; // Replace with your Key Secret
 
     @PostMapping("/create-order")
     public String createOrder(@RequestParam("amount") int amount) throws RazorpayException {
