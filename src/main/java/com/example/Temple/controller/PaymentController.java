@@ -15,8 +15,8 @@ import org.springframework.web.servlet.view.RedirectView;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PaymentController {
 
-    private static final String KEY_ID = "rzp_test_SsgyDu8zw62jBx"; // Replace with your Key ID
-    private static final String KEY_SECRET = "tZzHdDqbT7g2OOv2O8bawexI"; // Replace with your Key Secret
+    private static final String KEY_ID = "rzp_test_Sssnb1L7E6ib0Q"; // Replace with your Key ID
+    private static final String KEY_SECRET = "3sGxnhz6tbgbOaxwcRQ1uZPd"; // Replace with your Key Secret
 
     @PostMapping("/create-order")
     public String createOrder(@RequestParam("amount") int amount) throws RazorpayException {
