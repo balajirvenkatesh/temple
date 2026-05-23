@@ -5,12 +5,14 @@ import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
 import org.json.JSONObject;
 import com.razorpay.Utils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PaymentController {
 
     private static final String KEY_ID = "rzp_test_SsgyDu8zw62jBx"; // Replace with your Key ID
